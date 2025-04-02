@@ -1,0 +1,438 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0e6600; /* Light green background outside the box */
+    color: #004b23; /* Dark green text */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #1a3c2a; /* Dark green */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Start Page */
+#start-page {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#start-page h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #004b23; /* Dark green */
+}
+
+#start-page input {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
+}
+
+#start-page input:focus {
+    outline: none;
+    border-color: #004b23; /* Dark green on focus */
+}
+
+#start-page button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-page button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Game View */
+#game-view {
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#scores {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.player {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4; /* Light gray background */
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 8px;
+    width: 45%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.player:hover {
+    transform: scale(1.05);
+}
+
+.player h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #004b23; /* Dark green */
+}
+
+.player p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004b23; /* Dark green */
+}
+
+/* Throw Input Section */
+#throws {
+    margin-bottom: 30px;
+    text-align: center; /* Center-align the content inside the #throws section */
+}
+
+#throws h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #004b23; /* Dark green */
+}
+
+#throws label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #004b23; /* Dark green */
+}
+
+#throws input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
+}
+
+#throws input:focus {
+    outline: none;
+    border-color: #004b23; /* Dark green on focus */
+}
+
+#throws button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto; /* Add margin to center the button vertically */
+    display: inline-block; /* Ensure the button respects the text alignment */
+}
+
+#throws button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Turn Indicator */
+#turn-indicator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007a33; /* Light green */
+}
+
+/* Check-Out Help */
+#checkout-help {
+    font-size: 1.2rem;
+    color: #004b23; /* Dark green */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Round History */
+#round-history {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff; /* White background */
+    color: #004b23; /* Dark green */
+}
+
+#round-history th,
+#round-history td {
+    border: 1px solid #007a33; /* Light green border */
+    padding: 12px;
+    text-align: center;
+}
+
+#round-history th {
+    background-color: #007a33; /* Light green */
+    color: #ffffff; /* White text */
+    font-weight: bold;
+}
+
+#round-history tr:nth-child(even) {
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+#round-history tr:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+/* Active Player Highlight */
+.player.active {
+    border: 3px solid #004b23; /* Dark green border */
+    background-color: #e0e0e0; /* Slightly darker gray */
+}
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #007a33; /* Light green background outside the box */
+    color: #004b23; /* Dark green text */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #004b23; /* Dark green */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Start Page */
+#start-page {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#start-page h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #004b23; /* Dark green */
+}
+
+#start-page input {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
+}
+
+#start-page input:focus {
+    outline: none;
+    border-color: #004b23; /* Dark green on focus */
+}
+
+#start-page button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-page button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Game View */
+#game-view {
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#scores {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.player {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4; /* Light gray background */
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 8px;
+    width: 45%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.player:hover {
+    transform: scale(1.05);
+}
+
+.player h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #004b23; /* Dark green */
+}
+
+.player p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004b23; /* Dark green */
+}
+
+/* Throw Input Section */
+#throws {
+    margin-bottom: 30px;
+    text-align: center; /* Center-align the content inside the #throws section */
+}
+
+#throws h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #004b23; /* Dark green */
+}
+
+#throws label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #004b23; /* Dark green */
+}
+
+#throws input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
+}
+
+#throws input:focus {
+    outline: none;
+    border-color: #004b23; /* Dark green on focus */
+}
+
+#throws button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto; /* Add margin to center the button vertically */
+    display: inline-block; /* Ensure the button respects the text alignment */
+}
+
+#throws button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Turn Indicator */
+#turn-indicator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007a33; /* Light green */
+}
+
+/* Check-Out Help */
+#checkout-help {
+    font-size: 1.2rem;
+    color: #004b23; /* Dark green */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Round History */
+#round-history {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff; /* White background */
+    color: #004b23; /* Dark green */
+}
+
+#round-history th,
+#round-history td {
+    border: 1px solid #007a33; /* Light green border */
+    padding: 12px;
+    text-align: center;
+}
+
+#round-history th {
+    background-color: #007a33; /* Light green */
+    color: #ffffff; /* White text */
+    font-weight: bold;
+}
+
+#round-history tr:nth-child(even) {
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+#round-history tr:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+/* Active Player Highlight */
+.player.active {
+    border: 3px solid #004b23; /* Dark green border */
+    background-color: #e0e0e0; /* Slightly darker gray */
+}
