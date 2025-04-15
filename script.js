@@ -193,8 +193,38 @@ elements.startButton.addEventListener("click", () => {
     }
 });
 
-// Event listener for submitting throws
-elements.submitThrowsButton.addEventListener("click", () => {
+// Event listener for submitting throws with the "Bestätigen" button
+elements.submitThrowsButton.addEventListener("click", submitThrows);
+
+// Event listener for submitting throws with the Enter key
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent default form submission
+        submitThrows();
+    }
+});
+
+// Funktion zum Anzeigen der Gewinner-Box
+function showWinnerBox(winnerName) {
+    const winnerBox = document.getElementById("winner-box");
+    const winnerMessage = document.getElementById("winner-message");
+    const restartButton = document.getElementById("restart-game");
+
+    // Gewinner-Nachricht setzen
+    winnerMessage.textContent = `${winnerName} hat das Spiel gewonnen!`;
+
+    // Gewinner-Box anzeigen
+    winnerBox.style.display = "block";
+
+    // Event-Listener für den "Neues Spiel starten"-Button
+    restartButton.addEventListener("click", () => {
+        winnerBox.style.display = "none"; // Gewinner-Box ausblenden
+        resetGame(); // Spiel zurücksetzen
+    });
+}
+
+// Gewinner-Logik im submitThrows() integrieren
+function submitThrows() {
     const throwValues = elements.throwInputs.map(input => parseInt(input.value) || 0);
 
     // Validate throws
@@ -207,8 +237,26 @@ elements.submitThrowsButton.addEventListener("click", () => {
 
     // Update player data
     const currentPlayerData = players[currentPlayer];
+    const previousScore = currentPlayerData.score; // Save the previous score
+
     currentPlayerData.score -= totalPoints;
-    if (currentPlayerData.score < 0) currentPlayerData.score = 0;
+
+    // Check if the player has exceeded the required score
+    if (currentPlayerData.score < 0) {
+        alert("Zu viele Punkte! Die Punktzahl bleibt unverändert.");
+        currentPlayerData.score = previousScore; // Reset to the previous score
+    } else if (currentPlayerData.score === 0) {
+        // Check if the last dart was a double
+        const lastThrow = throwValues[throwValues.length - 1];
+        if (lastThrow % 2 !== 0) {
+            alert("Das Spiel kann nur mit einer Doppelnummer abgeschlossen werden!");
+            currentPlayerData.score = previousScore; // Reset to the previous score
+        } else {
+            // Player wins
+            showWinnerBox(currentPlayerData.name); // Gewinner-Box anzeigen
+            return;
+        }
+    }
 
     currentPlayerData.dartsThrown += throwValues.length; // Increment darts thrown
     currentPlayerData.totalPoints += totalPoints; // Increment total points scored
@@ -225,7 +273,7 @@ elements.submitThrowsButton.addEventListener("click", () => {
 
     // Reset throw inputs
     elements.throwInputs.forEach(input => (input.value = ""));
-});
+}
 
 // Update the turn indicator
 function updateTurnIndicator() {
@@ -250,4 +298,37 @@ function updateRoundHistory(playerName, throws, remainingScore) {
 // Check for checkout suggestions
 function checkForCheckout(score) {
     elements.checkoutHelp.textContent = checkoutTable[score] || "Nicht möglich";
+}
+
+// Reset the game and swap starting players
+function resetGame() {
+    // Swap players
+    const tempPlayer = players[1];
+    players[1] = players[2];
+    players[2] = tempPlayer;
+
+    // Reset scores and averages
+    players[1].score = 501;
+    players[2].score = 501;
+    players[1].dartsThrown = 0;
+    players[1].totalPoints = 0;
+    players[2].dartsThrown = 0;
+    players[2].totalPoints = 0;
+
+    // Update UI
+    elements.player1Display.textContent = players[1].name;
+    elements.player2Display.textContent = players[2].name;
+    elements.player1Score.textContent = "Punkte: 501";
+    elements.player2Score.textContent = "Punkte: 501";
+    elements.player1Average.textContent = "0.00";
+    elements.player2Average.textContent = "0.00";
+
+    elements.roundHistoryTable.innerHTML = ""; // Clear the round history
+
+    // Set the new starting player
+    currentPlayer = 1;
+    roundNumber = 1;
+
+    updateTurnIndicator();
+    checkForCheckout(players[currentPlayer].score);
 }
