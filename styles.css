@@ -1,256 +1,438 @@
+/* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #f5fffa 0%, #eafaf1 100%);
-    color: #234946;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #0e6600; /* Light green background outside the box */
+    color: #004b23; /* Dark green text */
 }
 
 .container {
-    max-width: 920px;
-    width: 100%;
-    margin: 40px 16px;
-    padding: 32px 24px;
-    box-sizing: border-box;
-    background: #fff;
-    border-radius: 22px;
-    box-shadow: 0 8px 32px rgba(60, 92, 92, 0.10), 0 2px 8px rgba(0,0,0,0.03);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
 header h1 {
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: #257c49;
-    letter-spacing: .04em;
-    margin-bottom: 0.2em;
+    font-size: 3rem;
+    color: #1a3c2a; /* Dark green */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#start-page,
-#game-view {
-    padding: 32px 18px;
-    background: #ffffffcc;
-    border-radius: 16px;
-    box-shadow: 0 2px 20px rgba(77,138,128,0.10);
-    margin-bottom: 16px;
+/* Start Page */
+#start-page {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-#start-page h2,
-#throws h3 {
-    font-size: 1.7rem;
-    color: #388f6e;
-    margin-bottom: 24px;
-    font-weight: 600;
+#start-page h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #004b23; /* Dark green */
 }
 
-#start-page input,
-#throws input {
+#start-page input {
     display: block;
-    width: 95%;
-    margin: 10px auto 18px auto;
-    padding: 13px 18px;
-    font-size: 1.06rem;
-    border: 1.8px solid #71cfa0;
-    border-radius: 9px;
-    background-color: #f8fbf9;
-    color: #204c3e;
+    width: 90%;
+    margin: 10px auto;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
+}
+
+#start-page input:focus {
     outline: none;
-    box-shadow: 0 2px 8px rgba(47,138,100,0.045) inset;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    border-color: #004b23; /* Dark green on focus */
 }
 
-#start-page input:focus,
-#throws input:focus {
-    border-color: #257c49;
-    box-shadow: 0 0 0 2px #a4e9c8;
-}
-
-#start-page button,
-#throws button,
-#winner-box button {
-    padding: 13px 32px;
-    font-size: 1.13rem;
-    font-weight: 600;
-    color: #ffffff;
-    background: linear-gradient(97deg, #33816e 20%, #71cfa0 100%);
+#start-page button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
     border: none;
-    border-radius: 9px;
+    border-radius: 6px;
     cursor: pointer;
-    box-shadow: 0 2px 10px rgba(47,138,100,0.08);
-    transition: background 0.2s, transform 0.14s, box-shadow 0.2s;
-    margin-top: 12px;
-    letter-spacing: .03em;
+    transition: background-color 0.3s ease;
 }
 
-#start-page button:hover,
-#throws button:hover,
-#winner-box button:hover {
-    background: linear-gradient(97deg, #1c684f 20%, #44c283 100%);
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 24px rgba(30,60,30,0.12);
+#start-page button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Game View */
+#game-view {
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #scores {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 18px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 
 .player {
     text-align: center;
-    padding: 22px 14px;
-    background-color: #effaf3;
-    border: none;
-    box-shadow: 0 1px 8px rgba(46, 155, 115, 0.06);
-    border-radius: 14px;
+    padding: 15px;
+    background-color: #f4f4f4; /* Light gray background */
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 8px;
     width: 45%;
-    margin-bottom: 12px;
-    transition: transform 0.2s, box-shadow 0.18s;
-    position: relative;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
 
-.player.active {
-    box-shadow: 0 4px 18px #a4e9c870, 0 1px 8px rgba(46, 155, 115, 0.10);
-    background: linear-gradient(101deg, #e2f8e9 60%, #d5f6e4 100%);
-    border-bottom: 4.2px solid #3dc188;
+.player:hover {
+    transform: scale(1.05);
 }
 
 .player h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #257c49;
-    font-weight: 600;
+    color: #004b23; /* Dark green */
 }
 
 .player p {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #358368;
-    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004b23; /* Dark green */
 }
 
+/* Throw Input Section */
 #throws {
-    margin-bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    margin-bottom: 30px;
+    text-align: center; /* Center-align the content inside the #throws section */
+}
+
+#throws h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #004b23; /* Dark green */
 }
 
 #throws label {
     display: block;
     margin-bottom: 5px;
     font-size: 1rem;
-    color: #257c49;
-    text-align: left;
+    color: #004b23; /* Dark green */
+}
+
+#throws input {
     width: 100%;
-    max-width: 330px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
 }
 
+#throws input:focus {
+    outline: none;
+    border-color: #004b23; /* Dark green on focus */
+}
+
+#throws button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto; /* Add margin to center the button vertically */
+    display: inline-block; /* Ensure the button respects the text alignment */
+}
+
+#throws button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Turn Indicator */
 #turn-indicator {
-    font-size: 1.33rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: bold;
     text-align: center;
-    margin-bottom: 18px;
-    color: #43b68d;
-    letter-spacing: .02em;
+    margin-bottom: 30px;
+    color: #007a33; /* Light green */
 }
 
+/* Check-Out Help */
 #checkout-help {
-    font-size: 1.08rem;
-    color: #257c49;
+    font-size: 1.2rem;
+    color: #004b23; /* Dark green */
     text-align: center;
-    margin-bottom: 24px;
-    opacity: .93;
+    margin-bottom: 30px;
 }
 
+/* Round History */
 #round-history {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-top: 16px;
-    background-color: #ffffffef;
-    color: #257c49;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2.4px 8px rgba(95, 188, 122, 0.06);
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff; /* White background */
+    color: #004b23; /* Dark green */
 }
 
-#round-history th, #round-history td {
-    border: none;
-    padding: 14px 10px;
+#round-history th,
+#round-history td {
+    border: 1px solid #007a33; /* Light green border */
+    padding: 12px;
     text-align: center;
-    font-size: 1rem;
 }
 
 #round-history th {
-    background-color: #44c283;
-    color: #fff;
+    background-color: #007a33; /* Light green */
+    color: #ffffff; /* White text */
     font-weight: bold;
 }
 
 #round-history tr:nth-child(even) {
-    background-color: #edfaf0;
+    background-color: #f4f4f4; /* Light gray background */
 }
 
 #round-history tr:hover {
-    background-color: #c2f2d8;
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
 }
 
-#winner-box {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #43b68d;
-    color: #ffffff;
-    padding: 38px 28px;
-    border-radius: 18px;
-    box-shadow: 0 8px 30px rgba(60, 92, 92, 0.18);
+/* Active Player Highlight */
+.player.active {
+    border: 3px solid #004b23; /* Dark green border */
+    background-color: #e0e0e0; /* Slightly darker gray */
+}
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #007a33; /* Light green background outside the box */
+    color: #004b23; /* Dark green text */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
     text-align: center;
-    z-index: 1000;
-    animation: fadeIn 0.5s ease-in-out;
+    margin-bottom: 30px;
 }
 
-#winner-box h2 {
-    font-size: 2.1rem;
-    margin-bottom: 18px;
-    font-weight: 700;
-    letter-spacing: .025em;
+header h1 {
+    font-size: 3rem;
+    color: #004b23; /* Dark green */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, -60%);}
-    to   { opacity: 1; transform: translate(-50%, -50%);}
+/* Start Page */
+#start-page {
+    text-align: center;
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-    .container { padding: 16px 4px;}
-    #scores { flex-direction: column; align-items: center; gap: 10px; }
-    .player { width: 95%; }
-    #throws input, #throws button { width: 100%; }
-    header h1 { font-size: 1.5rem; }
-    #start-page, #game-view { padding: 20px 4px;}
+#start-page h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #004b23; /* Dark green */
 }
 
-@media (max-width: 480px) {
-    #start-page h2, #throws h3 { font-size: 1.06rem; }
-    #turn-indicator { font-size: 1rem; }
-    #checkout-help { font-size: 0.97rem; }
-    #round-history th, #round-history td { font-size: 0.86rem; padding: 7px; }
-    .container { margin: 8px;}
+#start-page input {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
+}
+
+#start-page input:focus {
+    outline: none;
+    border-color: #004b23; /* Dark green on focus */
+}
+
+#start-page button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-page button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Game View */
+#game-view {
+    padding: 30px;
+    background-color: #ffffff; /* White background for the box */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#scores {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.player {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4; /* Light gray background */
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 8px;
+    width: 45%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.player:hover {
+    transform: scale(1.05);
+}
+
+.player h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #004b23; /* Dark green */
+}
+
+.player p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #004b23; /* Dark green */
+}
+
+/* Throw Input Section */
+#throws {
+    margin-bottom: 30px;
+    text-align: center; /* Center-align the content inside the #throws section */
+}
+
+#throws h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #004b23; /* Dark green */
+}
+
+#throws label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #004b23; /* Dark green */
+}
+
+#throws input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 2px solid #007a33; /* Light green border */
+    border-radius: 6px;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #004b23; /* Dark green text */
+}
+
+#throws input:focus {
+    outline: none;
+    border-color: #004b23; /* Dark green on focus */
+}
+
+#throws button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: #ffffff; /* White text */
+    background-color: #007a33; /* Light green */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto; /* Add margin to center the button vertically */
+    display: inline-block; /* Ensure the button respects the text alignment */
+}
+
+#throws button:hover {
+    background-color: #004b23; /* Dark green on hover */
+}
+
+/* Turn Indicator */
+#turn-indicator {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007a33; /* Light green */
+}
+
+/* Check-Out Help */
+#checkout-help {
+    font-size: 1.2rem;
+    color: #004b23; /* Dark green */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Round History */
+#round-history {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff; /* White background */
+    color: #004b23; /* Dark green */
+}
+
+#round-history th,
+#round-history td {
+    border: 1px solid #007a33; /* Light green border */
+    padding: 12px;
+    text-align: center;
+}
+
+#round-history th {
+    background-color: #007a33; /* Light green */
+    color: #ffffff; /* White text */
+    font-weight: bold;
+}
+
+#round-history tr:nth-child(even) {
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+#round-history tr:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+/* Active Player Highlight */
+.player.active {
+    border: 3px solid #004b23; /* Dark green border */
+    background-color: #e0e0e0; /* Slightly darker gray */
 }
