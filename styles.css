@@ -4,22 +4,51 @@ body {
     padding: 0;
     background: linear-gradient(120deg, #f5fffa 0%, #eafaf1 100%);
     color: #234946;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
 
 .container {
     max-width: 920px;
     width: 100%;
-    margin: 40px 16px;
+    /* margin: 40px 16px; */
+    margin: 0 auto; /* zentriert horizontal */
     padding: 32px 24px;
     box-sizing: border-box;
     background: #fff;
     border-radius: 22px;
     box-shadow: 0 8px 32px rgba(60, 92, 92, 0.10), 0 2px 8px rgba(0,0,0,0.03);
+    /* Vertikale Zentrierung für kleine Bildschirme */
+    position: relative;
+    top: 0;
 }
+
+@media (max-width: 1200px) {
+    .container {
+        margin: 32px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container { padding: 16px 4px; margin: 24px 4px;}
+    #scores { flex-direction: column; align-items: center; gap: 10px; }
+    .player { width: 95%; }
+    #throws input, #throws button { width: 100%; }
+    header h1 { font-size: 1.5rem; }
+    #start-page, #game-view { padding: 20px 4px;}
+}
+
+@media (max-width: 480px) {
+    #start-page h2, #throws h3 { font-size: 1.06rem; }
+    #turn-indicator { font-size: 1rem; }
+    #checkout-help { font-size: 0.97rem; }
+    #round-history th, #round-history td { font-size: 0.86rem; padding: 7px; }
+    .container { margin: 8px;}
+}
+
+/* Restlicher CSS bleibt wie gehabt */
 
 header {
     text-align: center;
@@ -238,19 +267,3 @@ header h1 {
     to   { opacity: 1; transform: translate(-50%, -50%);}
 }
 
-@media (max-width: 768px) {
-    .container { padding: 16px 4px;}
-    #scores { flex-direction: column; align-items: center; gap: 10px; }
-    .player { width: 95%; }
-    #throws input, #throws button { width: 100%; }
-    header h1 { font-size: 1.5rem; }
-    #start-page, #game-view { padding: 20px 4px;}
-}
-
-@media (max-width: 480px) {
-    #start-page h2, #throws h3 { font-size: 1.06rem; }
-    #turn-indicator { font-size: 1rem; }
-    #checkout-help { font-size: 0.97rem; }
-    #round-history th, #round-history td { font-size: 0.86rem; padding: 7px; }
-    .container { margin: 8px;}
-}
