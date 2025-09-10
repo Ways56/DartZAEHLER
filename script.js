@@ -192,6 +192,8 @@ elements.startButton.addEventListener("click", () => {
         elements.player2Display.textContent = player2Name;
         elements.startPage.style.display = "none";
         elements.gameView.style.display = "block";
+        currentPlayer = 1; // Fix: explizit sicherstellen, dass Spieler 1 beginnt!
+        roundNumber = 1;   // Runde zurücksetzen!
         updateTurnIndicator();
         checkForCheckout(players[currentPlayer].score);
     } else {
@@ -302,4 +304,3 @@ function resetGame() {
     updateTurnIndicator();
     checkForCheckout(players[currentPlayer].score);
 }
-
